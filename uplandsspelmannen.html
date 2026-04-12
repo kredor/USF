@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uplandsspelmannen – Uplands Spelmansförbund</title>
+  <meta name="description" content="Läs tidningen Uplandsspelmannen digitalt. Förbundets egen tidning med nyheter, reportage och noter.">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo" aria-label="Uplands Spelmansförbund – Startsida">
+        <img src="Brand_assets/USF_logo.png" alt="USF logotyp">
+        <div class="site-logo-text">Uplands<br>Spelmansförbund<span>Grundat 1945</span></div>
+      </a>
+      <nav class="main-nav" role="navigation" aria-label="Huvudnavigering">
+        <button class="hamburger" aria-label="Öppna meny" aria-expanded="false" aria-controls="main-nav-list"><span></span><span></span><span></span></button>
+        <ul class="nav-list" id="main-nav-list">
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="forbundet.html">Förbundet</a></li>
+          <li><a href="medlem.html">Bli Medlem</a></li>
+          <li><a href="instrumentforsakring.html">Instrumentförsäkring</a></li>
+          <li><a href="forsaljning.html">Noter & Försäljning</a></li>
+          <li><a href="kalendarium.html">Kalendarium</a></li>
+          <li><a href="oktoberstamman.html">Oktoberstämman</a></li>
+          <li><a href="spelman.html">Spelmän</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Brödsmulor">
+          <a href="index.html">Hem</a> <span>/</span> <a href="medlem.html">Bli Medlem</a> <span>/</span> <span>Uplandsspelmannen</span>
+        </nav>
+        <h1 class="animate-in">Uplandsspelmannen</h1>
+        <p class="animate-in">Förbundets egen tidning med nyheter, reportage, noter och spelmansinformation</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="content-block scroll-reveal" style="max-width: 700px; margin: 0 auto 2rem;">
+          <p>Uplandsspelmannen utkommer flera gånger per år och innehåller nyheter från förbundet, reportage, historiska artiklar, noter och information om kommande evenemang. Tidningen ingår i medlemskapet — välj mellan pappersformat eller PDF.</p>
+          <p>Nedan hittar du det digitala arkivet med alla utgivna nummer. Innehållet är lösenordsskyddat och tillgängligt för medlemmar.</p>
+        </div>
+
+        <div class="scroll-reveal" style="max-width: 900px; margin: 0 auto;">
+          <div id="usm-locked" class="info-box" style="text-align: center;">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="var(--color-gold)" style="margin-bottom: 1rem;"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2z"/></svg>
+            <h3>Tidningsarkivet</h3>
+            <p>Ange lösenordet för att komma åt det digitala tidningsarkivet. Lösenordet delas ut till medlemmar.</p>
+            <form id="usm-form" style="display: flex; gap: 0.5rem; justify-content: center; align-items: center; margin-top: 1.5rem; flex-wrap: wrap;">
+              <input type="password" id="usm-password" placeholder="Ange lösenord" autocomplete="off" style="padding: 0.65rem 1rem; border: 2px solid rgba(200,168,75,0.3); border-radius: var(--border-radius); background: rgba(245,240,232,0.08); color: var(--color-text); font-family: var(--font-body); font-size: 1rem; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--color-gold)'" onblur="this.style.borderColor='rgba(200,168,75,0.3)'">
+              <button type="submit" class="btn btn--gold">Öppna arkivet</button>
+            </form>
+            <p id="usm-error" style="color: var(--color-accent); margin-top: 0.75rem; font-weight: 600; display: none;">Fel lösenord. Försök igen.</p>
+          </div>
+
+          <div id="usm-unlocked" style="display: none;"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="info-box scroll-reveal" style="max-width: 700px; margin: 0 auto; text-align: center;">
+          <h3>Inte medlem ännu?</h3>
+          <p>Bli medlem i Uplands Spelmansförbund för att få tillgång till tidningen och mycket mer.</p>
+          <a href="medlem.html" class="btn btn--gold" style="margin-top: 1rem;">Bli medlem</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="site-logo"><img src="Brand_assets/USF_logo.png" alt="USF logotyp"></a>
+          <p>Uplands Spelmansförbund verkar för folkmusiken i Uppland sedan 1945. Vi samlar ca 300 medlemmar som delar kärleken till den uppländska spelmanstraditionen.</p>
+        </div>
+        <div class="footer-col"><h4>Sidor</h4><ul><li><a href="forbundet.html">Om förbundet</a></li><li><a href="medlem.html">Bli medlem</a></li><li><a href="forsaljning.html">Noter & Försäljning</a></li><li><a href="kalendarium.html">Kalendarium</a></li></ul></div>
+        <div class="footer-col"><h4>Kontakt</h4><ul><li><a href="mailto:ordf@uplandsspel.se">ordf@uplandsspel.se</a></li><li><a href="mailto:kassor@uplandsspel.se">kassor@uplandsspel.se</a></li><li><a href="https://www.spelmansforbund.se/" target="_blank" rel="noopener">Sveriges Spelmäns Riksförbund</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Uplands Spelmansförbund. Alla rättigheter förbehållna.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 01-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 017.8 2m-.2 2A3.6 3.6 0 004 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 003.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5M12 7a5 5 0 110 10 5 5 0 010-10m0 2a3 3 0 100 6 3 3 0 000-6z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    (function() {
+      var HASH = '50dea51f25048e97cad7386357fa6b6cd8a9cf745d5204f346785e0d0a9eb154';
+      var DATA = 'jUWgQBlVY0agzd6zDJJdKWsZ/M/XkfBhgKdbWJTnW+ZRNuFGvqj1MXhhg7I40pvazoqLUOLu0AU1kwmUFlKq0y8QasxYN7c07f68/hRrog2livj88BzRuI8Svg1pDlsdHEaYx1VUR/0rBmijIK7mR92G8HruQ2GzMRvJsGrV38KPs+Z13iOi0Yl1ENqSRUYHShUG09Zi0sbaSf8HjM7gIG33vlZPEVTJz3cM8rCt52QU80gtEMsYj26+QpvByUeq7poGkqgP8g4sEQReWtqjw3F2ZUvwtriKZZIJD/TFQuj3qx9XLyjaQFAMyaCHnWx5H/AW6HA3TDls19lx1yoWM0ZuW18vOn6HcAcTAsuqQZmj5EEUF1cZRWLtPh6nmYnPNfurT6AXr8TAbNeG3vZvYFwPMTYDNaYKa+XSAZ8wDXV5Zks4pYOou4Szhvod0MTr62vMqulH+D9Wp3DkT6wUUgR0gi16Gx0MzhpM/gng9Xh3scmr0aJ56jl1rnSa4xut4LTXEXCCH0uf6hz+d/PoOV8=';
+
+      function b64ToBytes(b64) {
+        var bin = atob(b64);
+        var bytes = new Uint8Array(bin.length);
+        for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        return bytes;
+      }
+
+      async function sha256(str) {
+        var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+        return Array.from(new Uint8Array(buf)).map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+      }
+
+      async function decrypt(password) {
+        var combined = b64ToBytes(DATA);
+        var salt = combined.slice(0, 16);
+        var iv = combined.slice(16, 28);
+        var tag = combined.slice(28, 44);
+        var ciphertext = combined.slice(44);
+
+        var keyMaterial = await crypto.subtle.importKey('raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveKey']);
+        var key = await crypto.subtle.deriveKey(
+          { name: 'PBKDF2', salt: salt, iterations: 100000, hash: 'SHA-256' },
+          keyMaterial,
+          { name: 'AES-GCM', length: 256 },
+          false,
+          ['decrypt']
+        );
+
+        var ct = new Uint8Array(ciphertext.length + 16);
+        ct.set(ciphertext);
+        ct.set(tag, ciphertext.length);
+
+        var decrypted = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: iv }, key, ct);
+        return new TextDecoder().decode(decrypted);
+      }
+
+      function unlock(password) {
+        decrypt(password).then(function(html) {
+          document.getElementById('usm-locked').style.display = 'none';
+          var unlocked = document.getElementById('usm-unlocked');
+          unlocked.innerHTML = html;
+          unlocked.style.display = 'block';
+          sessionStorage.setItem('usm_pw', password);
+        }).catch(function() {
+          document.getElementById('usm-error').style.display = 'block';
+          document.getElementById('usm-password').value = '';
+          document.getElementById('usm-password').focus();
+        });
+      }
+
+      // Check sessionStorage on load
+      var saved = sessionStorage.getItem('usm_pw');
+      if (saved) {
+        sha256(saved).then(function(h) {
+          if (h === HASH) unlock(saved);
+        });
+      }
+
+      document.getElementById('usm-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var pw = document.getElementById('usm-password').value;
+        sha256(pw).then(function(h) {
+          if (h === HASH) {
+            unlock(pw);
+          } else {
+            document.getElementById('usm-error').style.display = 'block';
+            document.getElementById('usm-password').value = '';
+            document.getElementById('usm-password').focus();
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
