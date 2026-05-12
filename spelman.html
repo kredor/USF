@@ -113,13 +113,14 @@
           </article>
 
           <article class="person-card">
-            <div class="person-card-img">
+            <div class="person-card-img langbacka-trigger" onclick="document.getElementById('gasvikarn-modal').classList.add('open')" style="cursor:pointer;" title="Klicka för att läsa om Gåsvikarn">
               <img src="images/spelman/gasvikarn.jpg" alt="Gåsvikarn">
             </div>
             <div class="person-card-body">
               <h3>Gåsvikarn</h3>
               <div class="role">Uppländsk spelman</div>
               <p>Artikel saxad ur Uplandsspelmannen nr 3/1979. Artikeln är skriven av Edvin Gustavsson och i sin tur tagen ur "Ryssåret 1719 och annat i Roslagen".</p>
+              <button class="btn btn--small" onclick="document.getElementById('gasvikarn-modal').classList.add('open')">Läs artikel</button>
             </div>
           </article>
 
@@ -330,6 +331,36 @@
     </section>
 
   </main>
+
+  <!-- Gåsvikarn modal -->
+  <div id="gasvikarn-modal" class="lbj-overlay" onclick="if(event.target===this)this.classList.remove('open')" role="dialog" aria-modal="true" aria-labelledby="gasvikarn-title">
+    <div class="lbj-dialog">
+      <button class="lbj-close" onclick="document.getElementById('gasvikarn-modal').classList.remove('open')" aria-label="Stäng">&times;</button>
+      <h2 id="gasvikarn-title">Gåsvikarn</h2>
+      <p class="lbj-meta">Ur Uplandsspelmannen nr 3/1979 &mdash; av Edvin Gustavsson, ur "Ryssåret 1719 och annat i Roslagen".</p>
+
+      <p>"Gåsvikarn" står vid mitten av 1800-talet i längderna som bonden Anders Andersson, ägare av ett halvt mantal nr 2 i Gåsvik, som ligger på fastlandsdelen av Väddö socken. Han var född i gården den 1 mars 1816, son till bonden Anders Andersson och dennes hustru Maria Mattsdotter. Fadern var son till häradsdomaren Anders Mattsson i Södersund, Väddö, som själv hade sin härstamning från samma gård i Gåsvik, och kom hit som måg 1813. Efter honom blev Anders, som var den äldste sonen, bonde 1839, då han gifte sig med jämnåriga Brita Jansdotter från Rangarnö nr 3, en av "Jan-Ols-döttrarna". I äktenskapet föddes barnen Maja Greta 1840, Johanna Karolina (Lina) 1845, Anders Gustaf 1848, Jan Erik 1852 och Karl, som blev sjökapten och kallade sig Zetterström, 1856, död i Stockholm 1907.</p>
+
+      <h3>Ett spelmansliv</h3>
+      <p>"Gåsvikarn" beskrives om en stor och grov karl, litet krokig på gammeldomen och med grått skepparskägg; storväxta var också barnen. En av minnesskrivarens sagesmän fällde om honom yttrandet: "Han kom sig ingenting han heller, med fiolen." Vad detta skulle innebära blev inte klarlagt. Men ekonomiskt gick det inte så bra för honom. Hemmanet måste han efter iråkat obestånd, som medförde konkurs, avträda 1865.</p>
+      <p>Sin tillflykt med sin stora familj fick han efter detta i moderns fd undantagsstuga på den efter en vid laga skiftet i byn utflyttad gård s.k. Anders Perstomten. Det var en mindre stuga av den vanliga ortstypen, med kök och kammare, nu för länge sedan riven. Om hans uppväxtår och hur han lärde sig spela är längre ingenting bekant. Det har uppgivits att han skulle ha varit notkunnig, men riktigheten och omfattningen härav vet vi ingenting närmare om.</p>
+      <p>Hans instrument var fiolen och klanéten (klarinetten). Däremot förekommer ingen uppgift om att han därjämte skulle ha trakterat tidens eljest vanliga allmogeinstrument nyckelharpan. Det berättas att när han var på väg till en dans eller gillesgård, dit han var kallad till att spela, blåste han på långt håll i klanéten, så att man skulle höra honom vara i annalkande. Under spelandet skulle det då och då vara en spelmanssup till att hålla spelman i den rätta formen. Oftast var spelmännen två, och Anselm Boman i Senneby spelade således som pojke tillsammans med honom. De var då antingen två fioler eller fick unge Anselm så gott han kunde "sekundera" klarinetten med fiolen. Vanliga tonarten var a-dur, och danserna gick ofta i turer med lika många takters vals som tur emellan.</p>
+      <p>Inpå nätterna kunde spelman bli så i tagen och "livad", att han dansade med på golvet och spelade och sjöng på en gång. En förtäljare som berättat detta hade med egna ögon sett det underliga, att Gåsvikarn då ibland höll fiolen omvänd, så att det såg ut som om han gnuggade på baksidan av träet. Lika bra för det lät det dock, fast hur han bar sig åt det visste ingen.</p>
+
+      <h3>Rivalitet och svartkonst</h3>
+      <p>Det var i folkets föreställning så med Anders Andersson i Gåsvik som med åtskilliga andra storspelmän, "att han kunde mer än vanligt folk". Detta var heller inte ett rykte som de utpekade bemödade sig om att vederlägga. Historierna om deras hemliga kunnande stärkte anseendet gentemot konkurrenterna. Var och en av dem ville vara den förnämste och bevakade svartsjukt sin spelmanslära. När därvid inte annat hjälpte fick "svartkonst" träda till.</p>
+      <p>En gång skulle Gåsvikarn jämte en annan spelman spela för brudparet på ett kyrkbröllop i Ununge. Den andre var en storskrytare, som hade påstått sig vara väl så god i konsten att föra stråken som spelman i Gåsvik. Men det skulle han inte ha sagt så högt, ty denne tog hämnd på det obehagliga viset att han lagade, att kamraten just utanför kyrkan och inför ögonen på det där samlade folket tappade byxorna, så att det blev ett stort spektakel utav.</p>
+      <p>En annan gång höll rusthållarn i Norrby i Söderby Karl bröllop åt enda dottern, och det var så storslaget att det inte hade gått för sig med mindre än att tinga spelmän från Stockholm. Dock hade även Gåsvikarn fått bud att komma och spela tillsammans med dessa, som skulle anses vara förmer än han. Detta var en värdesättning som han naturligtvis inte tyckte om, men han kom i alla fall, ehuru han förklädde sig och sa att han bara var en medhjälpare åt Gåsvikarn, som denne skickat i sitt ställe.</p>
+      <p>Nå, så speltes det, men de där herrarna från Stockholm undrade alltid med "medhjälparen", när de tog upp en ny bit, om Gåsvikarn brukade spela den med. Ja, fick de då till svar, han hade nog hålli på och klumpat med den, fast det inte hade blitt något vidare med den för honom. Och så gick de undan för undan, tills det var lidet långt frampå natten, då han slutligen bad att få ta upp en dans själv. Och det gjorde han så att strängarna tvärt sprang av för de andra, när de skulle ta efter. Varav de begrep till sist, att det var mästaren själv, som de hade framför sig.</p>
+
+      <h3>Spelmansflaskan</h3>
+      <p>Till Gåsvikarns utrustning hörde också en s.k. spelmansflaska. Det var en flaska med brännvin, tillsatt med något illaluktande "kolijox", förmodligen vitlök eller dyvelsträck eller bådadera. Spelmansflaskan var spelmännens skyddsmedel mot den trolldom som kunde hota dem från någon annans sida. En klunk ur flaskan förekom misstänkt förgöring. När någon sådan var å färde brukade det knäppa till i instrumentet, och då var det att fort ta en klunk ur flaskan. Gåsvikarns spelmansflaska tycks även ha innehållit en spritus eller spjertus, som var ett slags tjänsteande som gav innehavaren tur och seger i dennes förehavande.</p>
+      <p>Gåsvikarns "kunnande" inskränkte sig likväl inte bara till spelmanstricks. Han förstod sig också på och anlitades för sådana folkliga läkedomskonster som att stämma blod och bota tandvärk.</p>
+
+      <h3>Sista spelningen</h3>
+      <p>Fortfarande på 1880-talet spelade Anders Andersson på bröllop och danser. Sista gången det skedde var 1887 på midsommardansen i Stabby, Söderby Karl. Mest spelade han då fiol, ty klanéten orkade han längre just inte så mycket med. Snart därefter blev han sjuk. Han dog samma år i augusti och ligger begraven i varvet på södra sidan av Väddö gamla kyrkogård. Änkan blev åldrig och överlevde honom till inpå 1900-talet.</p>
+    </div>
+  </div>
 
   <!-- August Bohlin modal -->
   <div id="august-bohlin-modal" class="lbj-overlay" onclick="if(event.target===this)this.classList.remove('open')" role="dialog" aria-modal="true" aria-labelledby="august-bohlin-title">
