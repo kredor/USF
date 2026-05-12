@@ -89,13 +89,14 @@
           </article>
 
           <article class="person-card">
-            <div class="person-card-img">
+            <div class="person-card-img langbacka-trigger" onclick="document.getElementById('august-bohlin-modal').classList.add('open')" style="cursor:pointer;" title="Klicka för att läsa om August Bohlin">
               <img src="images/spelman/august-bohlin.jpg" alt="August Bohlin">
             </div>
             <div class="person-card-body">
               <h3>August Bohlin</h3>
               <div class="role">Uppländsk spelman</div>
               <p>Artikel saxad ur "Låtar från Våla Härad", utgiven 1975. Artikeln är skriven av Olof Jansson, spelman från Hov i Östervåla.</p>
+              <button class="btn btn--small" onclick="document.getElementById('august-bohlin-modal').classList.add('open')">Läs artikel</button>
             </div>
           </article>
 
@@ -330,6 +331,27 @@
 
   </main>
 
+  <!-- August Bohlin modal -->
+  <div id="august-bohlin-modal" class="lbj-overlay" onclick="if(event.target===this)this.classList.remove('open')" role="dialog" aria-modal="true" aria-labelledby="august-bohlin-title">
+    <div class="lbj-dialog">
+      <button class="lbj-close" onclick="document.getElementById('august-bohlin-modal').classList.remove('open')" aria-label="Stäng">&times;</button>
+      <h2 id="august-bohlin-title">August Bohlin</h2>
+      <p class="lbj-meta">En upländsk storspelman &mdash; Ur Låtar från Våla Härad, utgiven 1975. Skriven av Olof Jansson, spelman från Hov i Östervåla.</p>
+
+      <p>August Bohlin var född år 1877 i Försäter, Österlövsta socken. Han tillhörde en gammal äkta uppländsk spelmanssläkt. Hans far Johan Bohlin var en mycket känd och skicklig nyckelharpsspelman, likaså hans bror Car Erik Bohlin. Vidare var hans farfar, farmors far och farmors farfar väldiga spelmän. August Bohlin började spela fiol vid 12 års ålder på en egentillverkad fiol och blev snart en mycket skicklig fiolspelman.</p>
+
+      <p>Han deltog i den första spelmanstävlingen i Uppsala år 1909, och erhöll där första pris i fiolspelning. Året därpå, 1910, var han inbjuden, tillsammans med den övriga eliten av Sveriges spelmän, till den stora riksspelmansstämman i Stockholm. Han erhöll där av Zorn själv det s.k. Zornmärket i silver och därmed titeln riksspelman.</p>
+
+      <p>Tillsammans med fadern, Johan Bohlin, var han flitigt engagerad som spelman vid otaliga bjudningsdanser samt bröllop och fester av olika slag. De lär också ha spelat in grammofonskivor i grammofonens barndom, av vilka något exemplar finns kvar.</p>
+
+      <p>Bohlin var i många år bosatt i Broberget, Harbo socken. Han ägde där ett mindre lantbruk. Broberget ligger inte långt från gården Vida, där Bohlin ofta hjälpte till. Gånglåten "Korntorkarn" tillkom en dag vid Vida. Under sina många år i Harbo spelade Bohlin mycket tillsammans med bröderna Tallroth, vilka fört vidare hans repertoar och spelstil. Han flyttade så småningom till Uppsala där han bl.a. var verksam som vaktmästare vid Disagården i Gamla Uppsala. Han var även i flera somrar anställd som spelman på Skansen i Stockholm. Han spelade efter faderns frånfälle även nyckelharpa, vilket instrument han förbättrade så att det blev spelbart i alla tonarter, vilket tidigare ej varit fallet.</p>
+
+      <p>Bohlin var en mycket skicklig och fingerfärdig hantverkare samt var mycket noggrann. Personligen var August Bohlin en hedersman av gamla stammen. Hans uppträdande var försynt och stillsamt och han var nätt och prydlig i sin Upplandsdräkt. Hans spel var rent och mjukt och han hade en säker och rörlig rytm i sina låtar samt en mycket stor repertoar av gammal uppländsk folkmusik, som han troget förvaltade som arv efter sina fäder. August Bohlin komponerade även ett flertal goda låtar av vilka kan nämnas "Korntorkarn" en gånglåt, samt "Disapolskan" och "Disavalsen" m.fl.</p>
+
+      <p>August Bohlin avled våren 1949 i Uppsala.</p>
+    </div>
+  </div>
+
   <!-- Långbacka-Jan modal -->
   <div id="langbacka-modal" class="lbj-overlay" onclick="if(event.target===this)this.classList.remove('open')" role="dialog" aria-modal="true" aria-labelledby="lbj-title">
     <div class="lbj-dialog">
@@ -442,7 +464,9 @@
   <script src="script.js"></script>
   <script>
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') document.getElementById('langbacka-modal').classList.remove('open');
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.lbj-overlay.open').forEach(function(m) { m.classList.remove('open'); });
+      }
     });
   </script>
 </body>
