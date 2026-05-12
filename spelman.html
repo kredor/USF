@@ -100,13 +100,14 @@
           </article>
 
           <article class="person-card">
-            <div class="person-card-img">
+            <div class="person-card-img langbacka-trigger" onclick="document.getElementById('langbacka-modal').classList.add('open')" style="cursor:pointer;" title="Klicka för att läsa om Långbacka-Jan">
               <img src="images/spelman/langbacka-jan.jpg" alt="Långbacka-Jan">
             </div>
             <div class="person-card-body">
               <h3>Långbacka-Jan</h3>
               <div class="role">Uppländsk spelman</div>
               <p>Artikeln är saxad ur Uplandsspelmannen nr 3/1979. Artikeln är skriven av Hans Lustig, tidigare sekreterare i Uplands Spelmansförbund.</p>
+              <button class="btn btn--small" onclick="document.getElementById('langbacka-modal').classList.add('open')">Läs artikel</button>
             </div>
           </article>
 
@@ -329,6 +330,94 @@
 
   </main>
 
+  <!-- Långbacka-Jan modal -->
+  <div id="langbacka-modal" class="lbj-overlay" onclick="if(event.target===this)this.classList.remove('open')" role="dialog" aria-modal="true" aria-labelledby="lbj-title">
+    <div class="lbj-dialog">
+      <button class="lbj-close" onclick="document.getElementById('langbacka-modal').classList.remove('open')" aria-label="Stäng">&times;</button>
+      <h2 id="lbj-title">Långbacka-Jan</h2>
+      <p class="lbj-meta">Ur Uplandsspelmannen nr 3/1979 &mdash; av Hans Lustig, tidigare sekreterare i Uplands Spelmansförbund</p>
+
+      <p>Långbacka-Jans gånglåt med den livsglada fanfaren som upptakt, är bekant för många spelmän runt om i vårt land. Många har säkert också fått sig till livs någon av historierna om den fantastiske spelmannen från Rasbo. Han som kunde få brudskjutsar att välta och stolar att dansa och han som hade "ställt" fiolen så att den själv kunde spela.</p>
+      <p>Som de flesta sägenomspunna spelmän hade Långbacka-Jan lärt sig spela av näcken. Tre torsdagsnätter å rad skulle han ha inhämtat sina spelkunskaper vid en bro vid Hov i Rasbo, nära den plats där han växte upp. Här i en torpstuga vid vägen i början av den långa och stretiga "långbacken" – vägen över sockengränsen mellan Rasbo och Stavby – såg Långbacka-Jan dagens ljus den 1 juni år 1800.</p>
+
+      <h3>Uppväxttiden</h3>
+      <p>Hans far var byskomakaren Per Persson från Alunda och modern var Maria (Maja) Jansdotter från Rasbokil. De var båda födda 1767. Jan hade två äldre systrar Anna-Maja och Stina båda födda i Stavby åren 1792 och 1796.</p>
+      <p>År 1797 flyttade Per och Maja till "Långbacken" i Rasbo. Torpet födde två kor och en kviga (enligt bouppt efter Jans far som dog 1838). Bebyggelsen bestod av "1 stugbyggnad med tvänne stugor, kammare och Jordstuga, 1 fähus med foderhus och lada, 1 källarhus". Torpet var på 12 kvadratrev, alltså ca 2 tunnland "åker och täppor". I hagarna omkring hade man betesmarker för djuren och ner mot sjön Bokaren fanns torpets slåttermarker.</p>
+      <p>I denna miljö växte Långbacka-Jan upp och här börjar hans spelmanstid. Uppgifterna i husförhörslängderna är sparsamma, men några knapphändiga anteckningar från hans uppväxtår finns dock. Så t.ex. vaccinerades han mot smittkoppor då han var 8 år. Då han var 15 år gammal begick han sin första nattvardsgång. Det var den 24 juni 1815. I husförhörslängden för detta år står det att Jan läste "Bra" både innan- och utantill i Lilla och Stora katekesen. Anteckningar i längdens kolumner visar också att Jan var, som de flesta andra, en flitig kyrkobesökare.</p>
+
+      <h3>Lär sig spela av näcken</h3>
+      <p>Som barn hade säkert Jan många gånger varit ner till bäcken som rinner ut från dåvarande sjön Bokaren. Och kanske hade han fantiserat om näcken bland alarna och de små forsarna. När han nu blev äldre uppsökte han näcken för att lära spela av denne.</p>
+      <blockquote>"Det skulle ha skett under en bro mellan Långbacken och Hov. Och den bron heter Lutbron. Tre torsdagsnätter efter varandra skulle han ha gått dit och haft möte med en gubbe, som undervisade honom om spelsättet. Tredje torsdagsnatten skulle han ha fått kunskaperna."</blockquote>
+      <p>Så berättar Lars August Karlsson född 1862 i Rasbo och dotterson till Jans syster Stina. Karlsson berättar detta vid en intervju som gjordes 1936 av Werner Palmblad för dåvarande Landsmålsarkivet i Uppsala. Uppteckningen är en av de mera intressanta handlingarna som finns om Långbacka-Jan.</p>
+
+      <h3>Sägner om Långbacka-Jan</h3>
+      <p>Åtskilliga är sägnerna om Långbacka-Jan. En del finns beskrivna i olika skrifter, andra berättas av bygdens folk. Flera av sägnerna är s.k. vandringssägner, varför de har drag av berättelser om andra spelmän.</p>
+      <p>Långbacka-Jan var både fiolspelman och klarinettist, "men särskilt hans fiolspel hade rykte om en rent övernaturlig makt" skriver Sam Larsson (1909). "Det berättas" fortsätter han, "att, då han en gång spelade på ett bröllop i Alunda, börjar fram på morgonen bord och stolar att dansa och han kunde omöjligt själv lägga från sig fiolen, utan andra måste taga den av honom. Inte ens detta hjälpte emellertid, fiolen spelade alltjämt då den låg på en säng." Ungefär liknande står att läsa i Uppländsk folkmusik, 1929 av Ruben Liljefors.</p>
+      <p>Om dansande stolar berättar också den tidigare nämnde Lars August Karlsson: "En gång, talade dom om, att det hänt, att ungdomen blev trött, när han spelade på en dans en natt. Jag tror ni bara tröttnar, ni ungdom, hade han sagt. Så vinkade han åt stolarna och då dansade stolarna parvis omkring."</p>
+      <p>Jan Ling (1974) skriver: "Det berättas om Långbacka-Jan att spelmannen vid ett annat bröllopsfölje trollat så att han ej fick ett ljud ur klarinetten. På hemvägen tog han sig en klunk ur trollflaskan och vid vägskälet där de båda brudföljenas skiljdes passade han på att spotta ut tuggbussen. När sedan brudföljet med den konkurrerande spelmannen kom, välte vagnen med brudparet."</p>
+
+      <h3>Spelade upp lass</h3>
+      <p>Historier som berättas av folket i bygderna är att Långbacka-Jan kunde spela upp lass. Då böndernas hästar inte orkade dra upp de tunga lassen uppför den sega Långbacken, gick man in till Jan och bad honom att hjälpa till. Han tog då fiolen (eller kanske hellre klarinetten) och satte sig på lasset och spelade en sprittande polska. Hästarna fick fart och det gick i galopp uppför backen.</p>
+      <p>Erik Sahlström brukar berätta en annan version: "En gång kom en dräng till honom och bad om hjälp, för han hade kört fast med ett hölass i backen. Han hade parhästar för lasset, men dom rådde inte med att dra upp det andå. Jan bara skrattade och sa till drängen att ta ifrån hästarna. Sen spände han för en höna för lasset, och så satte han sig vid vägen och spelade för hönan. Och hönan blev så katig av spelet så hon drog lasset uppför backen som om det varit en fjäder." (Karin Alinder, 1960)</p>
+
+      <h3>Djävulsbesatt</h3>
+      <p>Det finns en annan berättelse som är känd av folk i bygderna. Jan var vid ett tillfälle sysselsatt med jordbruksarbete hos en bonde, tydligen i Stavby. Han fick då plötsligt en ingivelse att han var besatt av djävulen. Han lämnade sitt arbete på åkern springande mot Stavby kyrka. Han slet upp kyrkdörren och sprang fram till koret och här gömde han sig bakom altaret för att gå fri från den onde.</p>
+      <p>I ett annat sammanhang berättas om djävulens inblandning: "En gång på ett bondbröllop i Spånga i Alunda var det en flicka från Stockholm, som dansade så väldigt fint, så hon skulle liksom lära dom andra. Och hon dansade med den ene efter den andre av karlarna på bröllopet. Men vid midnattstid kom där in en fin herre genom dörren och dansade med henne. Och dom där två, dom dansade tre varv runt, och dom dansade så fint, sa alla dom andra slutade opp och bara såg på. Det blev som stillsamt i rummet då, så Jan vände sig om för att se efter, vad det kom sig av, och då fick han se vem det var som dansade med flickan. Det var självaste perkele. Jan såg att det lyste eld ur ögonen på honom, och horn hade han på knäna. 'Nu är det slutspelat', sa han och tog fiolen från hakan, 'för här har den Onde kommit in'. I samma ögonblick försvann den fine herrn, och ingen såg honom mer. Men Jan blev som tokig den natten, och man måste binda honom då han skulle hem." (Karin Alinder, 1960)</p>
+
+      <h3>Den sista spelningen</h3>
+      <p>Om den sista spelningen berättar Lars August Karlsson: "Sista gången han spelade har jag hört om. Jan hade varit till kyrkan och var på hemväg. Han gick till Hov och dom ville att han skulle stanna och spela där. Men han var inte så hågad. Han kom från kyrkan och hade inte någon fiol med sig. Då ville dom skicka efter fiolen med en pojke. Jan sa' till pojken och förbjöd honom att röra fiolen – han fick bara bära den. Men pojkar är inte att lita på. Pojken tog upp den och drog med stråken och han fick inte fiolen att tiga. Han la ned den i lådan men fiolen spelade. Långbacka-Jan hade märkt på sig själv att det var galet, så han gick pojken till mötes. Fiolen spelade i lådan. Då tog han upp den och bröt sönder den. Det var någon hemlig kunskap han hade. Det blev inte mera spela av. Då gick han hem. Det var sista spelningen."</p>
+      <p>En annan "sista spelning" omnämner Viktor Isaksson, 1931: "En gång då Jan skulle spela på ett bröllop, öppnades alla grindar av en osynlig makt. Efter den gången upphörde han att spela."</p>
+
+      <h3>Flyttar till Uppsala</h3>
+      <p>År 1830 sker en förändring i Jans liv. Han bryter upp från det lilla torpet i Rasbo och flyttar in till Uppsala. Han hade tidigare skaffat sig en fästmö som hette Ulrika Erngren och var från Rasbo. Året därpå flyttar också Ulrika till Uppsala, och de gifter sig här den 4 april 1831.</p>
+      <p>Jan köper en fastighet vid Kungsängsgatan 50 (dåvarande kv Lekatten, numera kv Gunnar). År 1833 fick de en son, Carl Johan. Jan kallade sig nu Johan Holmgren. År 1834 föddes dottern Maria Sofia.</p>
+      <p>Jan hade nu blivit familjeförsörjare, och ett nytt liv började för honom. Tydligen rycktes han tidigt med i den då begynnande väckelserörelsen. "Holmgren blev religiös, sen han kom till Uppsala" konstaterar L.A. Karlsson. Sjukdom kom så småningom in i bilden. Ulrika blev sjuk och dog i lungsot den 12 maj 1853. Jans mor dog året därpå, 87 år gammal. Hon hade de senare åren bott hos sonen efter det hon sålt Långbacka-torpet.</p>
+      <p>1854 flyttar Jan till kvarteret Bleket där Akademiska sjukhuset nu ligger. År 1861 gifter Jan om sig med änkan Anna Maria Persdotter Lindquist. År 1863 köper han ännu en fastighet i kvarteret Örtedalen vid Kungsgatan 13 (intill Linnéträdgården). Här levde de några år tillsammans, men 1871 dör hans andra hustru och Jan är åter ensam.</p>
+
+      <h3>Jans sista år</h3>
+      <p>Från Jans sista år är några intressanta uppgifter dokumenterade genom uppteckningar av Lars August Karlssons berättelser. Karlsson berättar att Långbacka-Jan idkade skomakeri och hade gård i Uppsala vid Kungsgatan 13. "På slutet av 1870-talet var jag där", berättar Karlsson, "Jag hade hälsningar från systern. Så jag har druckit kaffe med gubben."</p>
+      <p>På en fråga om han hade talat med Jan om hans spelmanstid svarade Karlsson: "…jag talade inte med honom om såna där historier, för det ansågs skamligt. Det var inte lovligt att hålla på med sådant trolleri. Det låg hemlighet i att ha instrumentet så ställt, att det spelade av sig självt." Och, tillägger Karlsson, "gubben var gammal och sluten då."</p>
+      <p>Enligt vad L.A. Karlsson trodde hade Långbacka-Jan samlat spelpengar under sin spelmanstid och att han nu var "smått förmögen". Långbacka-Jans anknytning till väckelserörelsen framgår tydligt av bouppteckningen efter honom, vilken bl.a. nämner gåvor till Lutherska Missionshuset i Uppsala och till Yttre missionen. Musikinstrumenten — fiol och klarinett — hade enligt en uppteckning från Björklinge av W. Palmblad redan tidigt skänkts till spelmannen Jonas Gustaf Tjäder från Albäcken i Skuttunge.</p>
+      <p>Långbacka-Jan dog den 23 februari 1880. Han blev alltså nästan 80 år. Han begravdes den 28 februari på Uppsala kyrkogård.</p>
+    </div>
+  </div>
+
+  <style>
+    .lbj-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.65);
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 2rem 1rem;
+    }
+    .lbj-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+    .lbj-dialog {
+      background: #fff;
+      max-width: 760px;
+      width: 100%;
+      border-radius: 8px;
+      padding: 2.5rem 2rem 2rem;
+      position: relative;
+      margin: auto;
+    }
+    .lbj-dialog h2 { font-size: 1.75rem; margin-bottom: .25rem; }
+    .lbj-dialog h3 { font-size: 1.1rem; margin: 1.5rem 0 .5rem; color: var(--color-primary, #8b1a1a); }
+    .lbj-dialog p { line-height: 1.75; margin-bottom: .9rem; color: #333; }
+    .lbj-dialog blockquote { border-left: 3px solid var(--color-gold, #c8a84b); margin: 1rem 0; padding: .5rem 1rem; color: #555; font-style: italic; }
+    .lbj-meta { font-size: .85rem; color: #888; margin-bottom: 1.5rem; font-style: italic; }
+    .lbj-close {
+      position: absolute;
+      top: 1rem; right: 1.25rem;
+      background: none; border: none;
+      font-size: 1.75rem; line-height: 1;
+      cursor: pointer; color: #666;
+    }
+    .lbj-close:hover { color: #000; }
+    .langbacka-trigger:hover img { opacity: .85; transition: opacity .2s; }
+  </style>
+
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
@@ -351,5 +440,10 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') document.getElementById('langbacka-modal').classList.remove('open');
+    });
+  </script>
 </body>
 </html>
