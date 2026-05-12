@@ -1,0 +1,9 @@
+node_modules
+USFold
+temporary screenshots
+*.mjs
+.git
+screenshot.mjs
+serve.mjs
+package.json
+package-lock.json
