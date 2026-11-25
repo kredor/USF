@@ -41,6 +41,9 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  /* The off-canvas mobile menu sits just outside the right edge; without this
+     phones treat the page as twice as wide and zoom out / scroll sideways. */
+  overflow-x: hidden;
 }
 
 body {
@@ -201,7 +204,8 @@ p:last-child {
   gap: 0.25rem;
 }
 
-.nav-list a {
+.nav-list a,
+.submenu-toggle {
   display: block;
   padding: 0.5rem 0.85rem;
   font-family: var(--font-body);
@@ -214,20 +218,109 @@ p:last-child {
   white-space: nowrap;
 }
 
-.nav-list a:hover {
+.nav-list a:hover,
+.submenu-toggle:hover {
   color: var(--color-primary);
   background-color: rgba(45, 74, 45, 0.06);
 }
 
-.nav-list a:focus-visible {
+.nav-list a:focus-visible,
+.submenu-toggle:focus-visible {
   outline: 2px solid var(--color-gold);
   outline-offset: 2px;
 }
 
-.nav-list a.active {
+.nav-list a:active,
+.submenu-toggle:active {
+  background-color: rgba(45, 74, 45, 0.12);
+}
+
+.nav-list a.active,
+.submenu-toggle.active {
   color: var(--color-primary);
   background-color: rgba(45, 74, 45, 0.08);
   font-weight: 600;
+}
+
+/* Submenu (dropdown) */
+.has-submenu {
+  position: relative;
+}
+
+.submenu-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: inherit;
+}
+
+.submenu-toggle::after {
+  content: '';
+  width: 0.38em;
+  height: 0.38em;
+  margin-top: -0.2em;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform var(--transition-spring);
+}
+
+.has-submenu.open .submenu-toggle::after {
+  transform: translateY(0.15em) rotate(-135deg);
+}
+
+.submenu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  min-width: 220px;
+  list-style: none;
+  padding: 0.4rem;
+  background: var(--color-white);
+  border: 1px solid rgba(45, 74, 45, 0.08);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 2px 6px rgba(45, 74, 45, 0.06), var(--shadow-elevated);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  /* Note: do not transition `visibility` here – a delayed visibility transition
+     leaves a ghost of the hidden menu painted over the hero in Chrome. */
+  transition: opacity var(--transition-smooth), transform var(--transition-spring);
+  z-index: 1002;
+}
+
+/* Invisible bridge so the menu stays open while the pointer moves down to it */
+.submenu::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.6rem;
+  height: 0.6rem;
+}
+
+.has-submenu.open .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@media (hover: hover) and (min-width: 1025px) {
+  .has-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .has-submenu:hover .submenu-toggle::after {
+    transform: translateY(0.15em) rotate(-135deg);
+  }
+}
+
+.submenu a {
+  padding: 0.6rem 0.9rem;
 }
 
 /* Hamburger */
@@ -278,7 +371,7 @@ p:last-child {
 }
 
 /* Mobile nav */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .hamburger {
     display: flex;
   }
@@ -291,9 +384,9 @@ p:last-child {
     height: calc(100dvh - var(--header-height));
     z-index: 1001;
     flex-direction: column;
-    background: rgba(245, 240, 232, 0.98);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    /* Solid background: a nested backdrop-filter inside the (already blurred)
+       header renders see-through, letting page content show behind the menu. */
+    background: var(--color-cream);
     padding: 2rem 1.5rem;
     gap: 0.25rem;
     transform: translateX(100%);
@@ -308,6 +401,53 @@ p:last-child {
   .nav-list a {
     font-size: 1.15rem;
     padding: 0.85rem 1rem;
+  }
+
+  /* Submenu is always shown expanded inside the mobile menu */
+  .submenu-toggle {
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    padding: 1.1rem 1rem 0.35rem;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .submenu-toggle::after {
+    display: none;
+  }
+
+  .submenu-toggle.active {
+    background: none;
+  }
+
+  .submenu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    min-width: 0;
+    padding: 0 0 0.5rem 0.75rem;
+    margin-left: 1rem;
+    background: none;
+    border: none;
+    border-left: 2px solid rgba(200, 168, 75, 0.5);
+    border-radius: 0;
+    box-shadow: none;
+    transition: none;
+  }
+
+  .submenu::before {
+    display: none;
+  }
+
+  .submenu a {
+    padding: 0.7rem 1rem;
   }
 }
 
@@ -828,30 +968,38 @@ p:last-child {
 }
 
 .footer-social {
-  display: flex;
-  gap: 0.75rem;
-}
-
-.footer-social a {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.45rem 1rem 0.45rem 0.75rem;
+  border-radius: 100px;
   background: rgba(245, 240, 232, 0.08);
-  transition: background-color var(--transition-smooth), transform var(--transition-spring);
+  color: rgba(245, 240, 232, 0.8);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background-color var(--transition-smooth), color var(--transition-smooth), transform var(--transition-spring);
 }
 
-.footer-social a:hover {
+.footer-social:hover {
   background: rgba(200, 168, 75, 0.2);
+  color: var(--color-cream);
   transform: translateY(-2px);
 }
 
+.footer-social:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.footer-social:active {
+  transform: translateY(0) scale(0.97);
+}
+
 .footer-social svg {
-  width: 16px;
-  height: 16px;
-  fill: rgba(245, 240, 232, 0.6);
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {

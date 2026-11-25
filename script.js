@@ -214,7 +214,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const href = link.getAttribute('href');
     if (href === currentPage || (currentPage === '' && href === 'index.html')) {
       link.classList.add('active');
+      // Highlight the parent menu (e.g. "Medlemskap") when on one of its pages
+      const parentToggle = link.closest('.has-submenu')?.querySelector('.submenu-toggle');
+      if (parentToggle) parentToggle.classList.add('active');
     }
+  });
+
+  // --- Submenus (e.g. Medlemskap) ---
+  document.querySelectorAll('.has-submenu').forEach(item => {
+    const toggle = item.querySelector('.submenu-toggle');
+    if (!toggle) return;
+
+    const setOpen = (open) => {
+      item.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open);
+    };
+
+    toggle.addEventListener('click', () => setOpen(!item.classList.contains('open')));
+
+    document.addEventListener('click', (e) => {
+      if (!item.contains(e.target)) setOpen(false);
+    });
+
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && item.classList.contains('open')) {
+        e.stopPropagation();
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    item.addEventListener('focusout', (e) => {
+      if (!item.contains(e.relatedTarget)) setOpen(false);
+    });
   });
 
 });

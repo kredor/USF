@@ -115,6 +115,8 @@ Ordningen i filen spelar ingen roll. Sidan sorterar själv utifrån dagens datum
 
 Sidhuvud och navigering finns **i varje HTML-fil**. Om du ändrar menyn på en sida måste samma ändring göras på alla sidor – eller be Cursor: *"Uppdatera navigeringen på alla sidor"*.
 
+Menyn har sex rubriker: Förbundet, **Medlemskap** (en undermeny med Bli medlem, Uplandsspelmannen och Instrumentförsäkring), Kalendarium, Oktoberstämman, Spelmän och Noter & Försäljning. Loggan leder till startsidan. Vilken rubrik som är markerad som aktiv sköts automatiskt av `script.js`, så skriv inte `class="active"` i menyn.
+
 ---
 
 ## Hjälp i Cursor
