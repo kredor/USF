@@ -2,3 +2,6 @@ USFold/
 node_modules/
 temporary screenshots/
 .claude/
+
+# Local Netlify folder
+.netlify
