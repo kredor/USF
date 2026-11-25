@@ -95,6 +95,22 @@ GitHub kan be om inloggning. Använd ditt GitHub-konto och en **Personal Access 
 
 `noter.html` omdirigerar till `forsaljning.html` (gammal länk).
 
+### Lägga till evenemang i kalendariet
+
+I `kalendarium.html`:
+
+1. Kopiera ett helt `<div class="event-item" ...>`-block.
+2. Ändra `data-date="ÅÅÅÅ-MM-DD"`, till exempel `data-date="2027-10-30"`.
+3. Ändra `data-category` till `speltraff`, `stamma` eller `ovrigt`. Byt också klassen på taggen längst ner till `event-tag--` plus samma ord.
+4. Ändra rubrik, plats och beskrivning.
+
+Ordningen i filen spelar ingen roll. Sidan sorterar själv utifrån dagens datum:
+- Kommande evenemang visas överst, med det närmaste först.
+- Evenemang som har varit flyttas automatiskt till **Tidigare evenemang** längst ner (dagen efter att de ägt rum). De sparas där för alltid, så ta inte bort dem.
+- Dag, månad och år i datumbrickan fylls i automatiskt från `data-date`.
+
+**Testa ett annat datum:** lägg till `?idag=ÅÅÅÅ-MM-DD` i adressen, t.ex. `http://localhost:3000/kalendarium.html?idag=2026-06-01`, för att se hur sidan ser ut en viss dag.
+
 ### Viktigt om menyn
 
 Sidhuvud och navigering finns **i varje HTML-fil**. Om du ändrar menyn på en sida måste samma ändring göras på alla sidor – eller be Cursor: *"Uppdatera navigeringen på alla sidor"*.

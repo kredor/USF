@@ -930,6 +930,66 @@ p:last-child {
 }
 
 /* --- Calendar --- */
+.external-calendar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  padding: 1rem 1.5rem;
+  background: var(--color-white);
+  border: 1px solid rgba(45, 74, 45, 0.08);
+  border-left: 4px solid var(--color-gold);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+  color: var(--color-dark);
+  text-decoration: none;
+  transition: transform var(--transition-spring), box-shadow var(--transition-smooth);
+}
+
+.external-calendar:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  color: var(--color-dark);
+}
+
+.external-calendar:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.external-calendar:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.external-calendar__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+}
+
+.external-calendar__text strong {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--color-primary-dark);
+}
+
+.external-calendar__text span {
+  font-size: 0.9rem;
+  color: #6b6b63;
+}
+
+.external-calendar__cta {
+  flex-shrink: 0;
+  padding: 0.45rem 1.1rem;
+  border-radius: 100px;
+  background: var(--color-primary);
+  color: var(--color-cream);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
 .calendar-filters {
   display: flex;
   gap: 0.5rem;
@@ -989,10 +1049,19 @@ p:last-child {
   box-shadow: var(--shadow-hover);
 }
 
+.event-item {
+  scroll-margin-top: calc(var(--header-height) + 1.5rem);
+}
+
+.event-item:target {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 2px rgba(200, 168, 75, 0.35), var(--shadow-hover);
+}
+
 .event-date-badge {
   flex-shrink: 0;
   width: 64px;
-  height: 64px;
+  height: 72px;
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
   border-radius: var(--border-radius-lg);
   display: flex;
@@ -1015,6 +1084,92 @@ p:last-child {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-top: 2px;
+}
+
+.event-date-badge .year {
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  opacity: 0.75;
+  margin-top: 1px;
+}
+
+.events-empty {
+  font-style: italic;
+  color: #888;
+  margin-top: 0.5rem;
+}
+
+/* Past events (history) */
+.events-past {
+  margin-top: 3rem;
+}
+
+.events-past summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1.25rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1.5px solid var(--color-light);
+  background: var(--color-white);
+  color: var(--color-dark);
+  border-radius: 100px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: border-color var(--transition-smooth), color var(--transition-smooth), transform var(--transition-spring);
+}
+
+.events-past summary::-webkit-details-marker {
+  display: none;
+}
+
+.events-past summary::before {
+  content: '';
+  width: 0.45em;
+  height: 0.45em;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform var(--transition-spring);
+}
+
+.events-past[open] summary::before {
+  transform: rotate(45deg);
+}
+
+.events-past summary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.events-past summary:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.events-past summary:active {
+  transform: scale(0.97);
+}
+
+.events-past-list {
+  margin-top: 1rem;
+}
+
+.events-past .event-item {
+  opacity: 0.7;
+  box-shadow: none;
+}
+
+.events-past .event-item:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.events-past .event-date-badge {
+  filter: grayscale(0.6);
 }
 
 .event-details h3 {
@@ -1066,6 +1221,10 @@ p:last-child {
     gap: 0.5rem;
     padding: 0.5rem 1rem;
     border-radius: 100px;
+  }
+  .event-date-badge .month,
+  .event-date-badge .year {
+    margin-top: 0;
   }
 }
 

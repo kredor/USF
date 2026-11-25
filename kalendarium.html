@@ -52,6 +52,15 @@
     <section class="section">
       <div class="container">
 
+        <!-- Link to regional calendar (other associations' events) -->
+        <a class="external-calendar scroll-reveal" href="https://uppsalafolk.se/evenemang/" target="_blank" rel="noopener">
+          <span class="external-calendar__text">
+            <strong>Fler evenemang i Uppland</strong>
+            <span>Uppsalafolk.se samlar folkmusik, dans och stämmor från många föreningar.</span>
+          </span>
+          <span class="external-calendar__cta">Till Uppsalafolk.se <span aria-hidden="true">&#8599;</span></span>
+        </a>
+
         <!-- Filters -->
         <div class="calendar-filters scroll-reveal" role="group" aria-label="Filtrera evenemang">
           <button class="filter-btn active" data-filter="alla">Alla</button>
@@ -60,13 +69,19 @@
           <button class="filter-btn" data-filter="ovrigt">Övrigt</button>
         </div>
 
-        <!-- Events -->
-        <div class="event-list scroll-reveal-stagger">
+        <!-- Events
+             Lägga till ett evenemang: kopiera ett helt event-item-block och ändra
+             data-date (ÅÅÅÅ-MM-DD), data-category, rubrik och text.
+             Ordningen spelar ingen roll – sidan sorterar själv och flyttar
+             passerade evenemang till "Tidigare evenemang" längst ner.
+             Dag, månad och år i datumbrickan fylls i automatiskt från data-date. -->
+        <div class="event-list scroll-reveal-stagger" id="events-upcoming">
 
-          <div class="event-item" data-category="stamma">
+          <div class="event-item" data-category="stamma" data-date="2026-06-14">
             <div class="event-date-badge" style="background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light)); box-shadow: 0 4px 12px rgba(139,26,26,0.15);">
               <span class="day">14</span>
               <span class="month">Jun</span>
+              <span class="year">2026</span>
             </div>
             <div class="event-details">
               <h3>Disastämman</h3>
@@ -76,10 +91,11 @@
             </div>
           </div>
 
-          <div class="event-item" data-category="stamma">
+          <div class="event-item" data-category="stamma" data-date="2026-10-31">
             <div class="event-date-badge" style="background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light)); box-shadow: 0 4px 12px rgba(139,26,26,0.15);">
               <span class="day">31</span>
               <span class="month">Okt</span>
+              <span class="year">2026</span>
             </div>
             <div class="event-details">
               <h3>Oktoberstämman 2026</h3>
@@ -89,10 +105,11 @@
             </div>
           </div>
 
-          <div class="event-item" data-category="ovrigt">
+          <div class="event-item" data-category="ovrigt" data-date="2026-11-15">
             <div class="event-date-badge" style="background: linear-gradient(135deg, #8a7530, var(--color-gold)); box-shadow: 0 4px 12px rgba(200,168,75,0.15);">
               <span class="day">15</span>
               <span class="month">Nov</span>
+              <span class="year">2026</span>
             </div>
             <div class="event-details">
               <h3>Årsmöte USF</h3>
@@ -102,7 +119,28 @@
             </div>
           </div>
 
+          <div class="event-item" id="oktoberstamman-2027" data-category="stamma" data-date="2027-10-30">
+            <div class="event-date-badge" style="background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light)); box-shadow: 0 4px 12px rgba(139,26,26,0.15);">
+              <span class="day">30</span>
+              <span class="month">Okt</span>
+              <span class="year">2027</span>
+            </div>
+            <div class="event-details">
+              <h3>Oktoberstämman 2027</h3>
+              <p class="event-meta">Lördag · UKK, Uppsala</p>
+              <p>En av Sveriges äldsta och mest ansedda spelmansstämmor. Spelmän från hela landet samlas i Uppsala för en helg fylld av musik.</p>
+              <span class="event-tag event-tag--stamma">Stämma</span>
+            </div>
+          </div>
+
         </div>
+
+        <p class="events-empty" hidden>Inga kommande evenemang inlagda just nu.</p>
+
+        <details class="events-past" hidden>
+          <summary><span>Tidigare evenemang (<span class="events-past-count">0</span>)</span></summary>
+          <div class="event-list events-past-list"></div>
+        </details>
 
       </div>
     </section>
@@ -112,11 +150,6 @@
         <div class="info-box scroll-reveal" style="max-width: 700px; margin: 0 auto; text-align: center;">
           <h3>Regelbundna spelträffar</h3>
           <p>Vårens spelträffar på Ringhem avslutades <strong>19 maj 2026</strong>. Under sommaren pausar vi – höstterminen startar igen med spelträffar <strong>varannan tisdag, udda veckor</strong>, kl 13:00–15:30 på <strong>Ringhem, Gamla Uppsalagatan 21, Uppsala</strong>. Alla är välkomna – ta med ditt instrument och kom!</p>
-        </div>
-
-        <div class="info-box scroll-reveal" style="max-width: 700px; margin: 2rem auto 0; text-align: center;">
-          <h3>Fler evenemang i Uppland</h3>
-          <p>På <a href="https://uppsalafolk.se/evenemang/" target="_blank" rel="noopener">Uppsalafolk.se</a> hittar du en evenemangsguide med folkmusik, dans och stämmor i Uppland.</p>
         </div>
       </div>
     </section>

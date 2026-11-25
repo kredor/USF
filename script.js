@@ -66,6 +66,75 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => observer.observe(el));
   }
 
+  // --- Calendar: upcoming vs past ---
+  // Each .event-item carries data-date="YYYY-MM-DD". Upcoming events are sorted
+  // soonest first; events are moved to "Tidigare evenemang" the day after they
+  // happen, newest first. For testing, ?idag=YYYY-MM-DD overrides today's date.
+  const upcomingList = document.getElementById('events-upcoming');
+  const pastBox = document.querySelector('.events-past');
+  const pastList = document.querySelector('.events-past-list');
+  const pastCount = document.querySelector('.events-past-count');
+  const emptyMsg = document.querySelector('.events-empty');
+  const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
+
+  const parseLocalDate = (str) => {
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(str || '');
+    return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null;
+  };
+
+  const refreshCalendarState = () => {
+    if (!upcomingList) return;
+    const isShown = (el) => el.style.display !== 'none';
+    const visibleUpcoming = [...upcomingList.querySelectorAll('.event-item')].filter(isShown).length;
+    const allPast = pastList ? [...pastList.querySelectorAll('.event-item')] : [];
+    const visiblePast = allPast.filter(isShown).length;
+    if (emptyMsg) emptyMsg.hidden = visibleUpcoming > 0;
+    if (pastCount) pastCount.textContent = visiblePast;
+    if (pastBox) pastBox.hidden = visiblePast === 0;
+  };
+
+  if (upcomingList) {
+    const today = parseLocalDate(new URLSearchParams(location.search).get('idag')) || new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const dated = [...document.querySelectorAll('.event-item[data-date]')]
+      .map(el => ({ el, date: parseLocalDate(el.dataset.date) }))
+      .filter(e => e.date);
+
+    dated.forEach(({ el, date }) => {
+      const badge = el.querySelector('.event-date-badge');
+      if (!badge) return;
+      const set = (cls, text) => {
+        let span = badge.querySelector('.' + cls);
+        if (!span) {
+          span = document.createElement('span');
+          span.className = cls;
+          badge.appendChild(span);
+        }
+        span.textContent = text;
+      };
+      set('day', date.getDate());
+      set('month', MONTHS[date.getMonth()]);
+      set('year', date.getFullYear());
+    });
+
+    const upcoming = dated.filter(e => e.date >= today).sort((a, b) => a.date - b.date);
+    const past = dated.filter(e => e.date < today).sort((a, b) => b.date - a.date);
+
+    upcoming.forEach(({ el }) => upcomingList.appendChild(el));
+    if (pastList) past.forEach(({ el }) => pastList.appendChild(el));
+
+    refreshCalendarState();
+
+    // Links like kalendarium.html#oktoberstamman-2027: the browser jumps before
+    // the list is reordered, so jump again (opening the history if needed).
+    const target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target && target.classList.contains('event-item')) {
+      if (pastBox && pastBox.contains(target)) pastBox.open = true;
+      requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));
+    }
+  }
+
   // --- Calendar filter ---
   const filterBtns = document.querySelectorAll('.filter-btn');
   const eventItems = document.querySelectorAll('.event-item');
@@ -84,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item.style.display = 'none';
           }
         });
+        refreshCalendarState();
       });
     });
   }
